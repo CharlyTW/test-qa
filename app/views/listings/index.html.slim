@@ -1,0 +1,7 @@
+h1 Annonces
+
+ul
+  - listings.each do |listing|
+    li
+      = link_to listing.title, listing_path(listing)
+      span  — #{listing.account.display_name}
