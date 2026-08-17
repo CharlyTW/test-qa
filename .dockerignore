@@ -1,0 +1,11 @@
+.git
+log/*
+tmp/*
+storage/*
+node_modules
+.gitignore
+README.md
+*.md
+!TICKET.md
+!CONVENTIONS.md
+!RENDU.md

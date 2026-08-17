@@ -1,0 +1,10 @@
+body { font-family: system-ui, sans-serif; margin: 0; padding: 1rem; background: #f7f4ef; color: #1a1a1a; }
+a { color: #0b5; }
+.flash { padding: .75rem 1rem; margin-bottom: 1rem; border-radius: .25rem; }
+.flash-notice { background: #e6f6ea; }
+.flash-alert { background: #fde8e8; }
+.badge { display: inline-block; min-width: 1.25rem; padding: .1rem .4rem; border-radius: 999px; background: #c0392b; color: #fff; font-size: .85rem; }
+.layout-header { display: flex; gap: 1rem; align-items: center; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid #ddd; }
+.messages { list-style: none; padding: 0; }
+.message { padding: .5rem .75rem; margin: .5rem 0; background: #fff; border-radius: .25rem; }
+.empty-state { padding: 2rem; text-align: center; color: #666; }
