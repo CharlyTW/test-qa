@@ -1,9 +1,17 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+# frozen_string_literal: true
+
+famille = Account.find_or_create_by!(slug: "famille") do |account|
+  account.display_name = "Famille Martin"
+end
+famille.create_listing!(
+  title: "Recherche intervenant·e à domicile",
+  body: "Famille avec deux enfants, quartier calme."
+) unless famille.listing
+
+intervenant = Account.find_or_create_by!(slug: "intervenant") do |account|
+  account.display_name = "Camille Intervenant"
+end
+intervenant.create_listing!(
+  title: "Camille — aide à domicile",
+  body: "Disponible en semaine, expériences petite enfance."
+) unless intervenant.listing

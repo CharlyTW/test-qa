@@ -9,6 +9,25 @@
     <%= javascript_importmap_tags %>
   </head>
   <body>
+    <header class="layout-header">
+      <strong><%= link_to "Cocon", root_path %></strong>
+      <% if current_account %>
+        <span><%= current_account.display_name %></span>
+        <%= link_to "Annonces", listings_path %>
+        <%= yield :nav_extra %>
+        <%= button_to "Déconnexion", logout_path, method: :delete %>
+      <% else %>
+        <span>Non connecté — utilise /go/famille ou /go/intervenant</span>
+      <% end %>
+    </header>
+
+    <% if notice.present? %>
+      <p class="flash flash-notice"><%= notice %></p>
+    <% end %>
+    <% if alert.present? %>
+      <p class="flash flash-alert"><%= alert %></p>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

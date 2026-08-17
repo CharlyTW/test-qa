@@ -1,0 +1,11 @@
+h1 = listing.title
+p
+  strong Auteur :
+  = listing.account.display_name
+p = listing.body
+
+- if current_account&.id == listing.account_id
+  p.flash.flash-alert C'est votre annonce.
+- else
+  p
+    em Messagerie disponible sur la branche feature/MSG-42.
