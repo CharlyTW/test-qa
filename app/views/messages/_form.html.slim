@@ -1,0 +1,10 @@
+#message_form.message-composer
+  = form_with model: form, url: conversation_messages_path(conversation), scope: :chat_message do |f|
+    = f.label :content, "Message", class: "message-composer__label"
+    = f.text_area :content, rows: 3, class: "message-composer__input", placeholder: "Écrire un message…"
+    - if form.errors.any?
+      ul.message-composer__errors
+        - form.errors.full_messages.each do |error|
+          li = error
+    .message-composer__actions
+      = f.submit "Envoyer", class: "message-composer__submit"

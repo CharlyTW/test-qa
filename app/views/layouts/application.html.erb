@@ -9,6 +9,10 @@
     <%= javascript_importmap_tags %>
   </head>
   <body<% if current_account %> data-current-account-id="<%= current_account.id %>"<% end %>>
+    <% if current_account %>
+      <%= turbo_stream_from current_account %>
+    <% end %>
+
     <header class="site-header">
       <div class="site-header__inner">
         <%= link_to "Cocon", root_path, class: "site-header__brand" %>
@@ -16,7 +20,10 @@
           <span class="site-header__user"><%= account_heading(current_account) %></span>
           <nav class="site-header__nav">
             <%= link_to "Annonces", listings_path %>
-            <%= yield :nav_extra %>
+            <%= link_to conversations_path do %>
+              Messagerie
+              <%= render "conversations/unread_badge", account: current_account %>
+            <% end %>
             <%= button_to "Déconnexion", logout_path, method: :delete, class: "btn btn-ghost" %>
           </nav>
         <% else %>

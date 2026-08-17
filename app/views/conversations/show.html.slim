@@ -1,0 +1,11 @@
+= turbo_stream_from conversation
+
+.thread-header
+  = link_to "← Inbox", conversations_path, class: "thread-header__back"
+  h1 Fil avec #{other ? account_heading(other) : "inconnu"}
+
+ul#messages.messages
+  - messages.each do |message|
+    = render "messages/message", message: message, current_account: current_account
+
+= render "messages/form", conversation: conversation, form: form
