@@ -8,7 +8,32 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-  <body>
-    <%= yield %>
+  <body<% if current_account %> data-current-account-id="<%= current_account.id %>"<% end %>>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <%= link_to "Cocon", root_path, class: "site-header__brand" %>
+        <% if current_account %>
+          <span class="site-header__user"><%= account_heading(current_account) %></span>
+          <nav class="site-header__nav">
+            <%= link_to "Annonces", listings_path %>
+            <%= yield :nav_extra %>
+            <%= button_to "Déconnexion", logout_path, method: :delete, class: "btn btn-ghost" %>
+          </nav>
+        <% else %>
+          <span class="site-header__hint">Connexion démo ci-dessous</span>
+        <% end %>
+      </div>
+    </header>
+
+    <main class="page">
+      <% if notice.present? %>
+        <p class="flash flash-notice"><%= notice %></p>
+      <% end %>
+      <% if alert.present? %>
+        <p class="flash flash-alert"><%= alert %></p>
+      <% end %>
+
+      <%= yield %>
+    </main>
   </body>
 </html>

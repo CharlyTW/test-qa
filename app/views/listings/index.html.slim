@@ -1,0 +1,7 @@
+h1 Annonces
+
+ul.listing-list
+  - listings.each do |listing|
+    li.card.listing-row
+      = link_to listing.title, listing_path(listing), class: "listing-row__title"
+      p.meta = account_heading(listing.account)

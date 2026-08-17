@@ -1,0 +1,25 @@
+h1 Cocon
+p.home-lead Plateforme de mise en relation familles ↔ intervenant·es à domicile.
+
+h2 Connexion démo
+.home-ctas
+  .card.home-cta
+    h2 Sophie Martin
+    p.meta Famille — compte principal de recette
+    = link_to "Se connecter", go_path("famille"), class: "btn btn-primary"
+  .card.home-cta
+    h2 Camille Dubois
+    p.meta Intervenant·e — compte principal de recette
+    = link_to "Se connecter", go_path("intervenant"), class: "btn btn-primary"
+  .card.home-cta
+    h2 Lucas Petit
+    p.meta Famille — seconde annonce famille
+    = link_to "Se connecter", go_path("famille-petit"), class: "btn btn-primary"
+  .card.home-cta
+    h2 Nadia Benali
+    p.meta Intervenant·e — seconde annonce intervenant
+    = link_to "Se connecter", go_path("intervenant-benali"), class: "btn btn-primary"
+  .card.home-cta
+    h2 Alex Bernard
+    p.meta Famille — observateur (sans annonce, hors fils des autres)
+    = link_to "Se connecter", go_path("observateur"), class: "btn btn-ghost"

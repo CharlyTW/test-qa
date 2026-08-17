@@ -1,0 +1,11 @@
+.card
+  h1 = listing.title
+  p.meta
+    | Auteur ·
+    =< account_heading(listing.account)
+  p.listing-show__body = listing.body
+
+  - if current_account&.id == listing.account_id
+    p.info-banner C'est votre annonce.
+  - else
+    p.meta Messagerie disponible sur la branche feature/MSG-42.
