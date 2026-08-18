@@ -61,13 +61,9 @@ docker compose up --build
 | Rendu | Erreurs, preuves, corrections suggérées, axes d’amélioration dans `RENDU.md` |
 | Bonus | Specs et/ou correctifs (non pénalisé si absent) |
 
-## Tests automatisés déjà présents
+## Tests automatisés
 
-```bash
-docker compose exec web bundle exec rspec
-```
-
-Le choix d’**ajouter** d’autres tests (RSpec, Capybara, etc.) est libre en bonus : documente alors prérequis, dépendances et commandes dans le rendu.
+Le choix d’**ajouter** des tests (RSpec, Capybara, etc.) est libre en bonus : documente alors prérequis, dépendances et commandes dans le rendu.
 
 ## Budget indicatif (~3 h)
 
