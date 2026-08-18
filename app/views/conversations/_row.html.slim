@@ -1,0 +1,13 @@
+li.conversation-row id=dom_id(membership)
+  - counterpart = conversation.other_account(account)
+  - last_message = conversation.messages.max_by(&:created_at)
+  .conversation-row__main
+    = link_to conversation_path(conversation), class: "conversation-row__title" do
+      span = counterpart ? account_heading(counterpart) : account_heading(account, vous: true)
+      - if membership.unread.positive?
+        span.badge = membership.unread
+    - if last_message
+      p.conversation-row__preview = preview_text(last_message.content)
+      p.conversation-row__time = format_message_time(last_message.created_at)
+  .conversation-row__actions
+    = button_to "Archiver", archive_conversation_path(conversation), method: :post, class: "btn btn-ghost"

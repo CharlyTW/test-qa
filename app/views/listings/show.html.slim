@@ -8,4 +8,5 @@
   - if current_account&.id == listing.account_id
     p.info-banner C'est votre annonce.
   - else
-    p.meta Messagerie disponible sur la branche feature/MSG-42.
+    .listing-show__actions
+      = button_to "Contacter", contact_listing_path(listing), method: :post, class: "btn btn-primary"

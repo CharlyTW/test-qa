@@ -1,0 +1,6 @@
+- mine = local_assigns[:current_account].present? && message.sender_id == current_account.id
+li.message id=dom_id(message) data-sender-id=message.sender_id class=(mine ? "message--mine" : "message--theirs")
+  .message__meta
+    span.message__author = account_heading(message.sender)
+    span.message__time = format_message_time(message.created_at)
+  p.message__body = message.content

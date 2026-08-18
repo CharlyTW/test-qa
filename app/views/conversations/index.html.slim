@@ -1,0 +1,7 @@
+= turbo_stream_from current_account
+
+h1 Messagerie
+#conversations_list
+  ul#conversation_rows.conversation-list
+    - memberships.each do |membership|
+      = render "conversations/row", membership: membership, conversation: membership.conversation, account: current_account

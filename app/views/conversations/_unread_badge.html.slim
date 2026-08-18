@@ -1,0 +1,3 @@
+span#unread_badge
+  - if account&.unread_total.to_i.positive?
+    span.badge = account.unread_total
