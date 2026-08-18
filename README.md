@@ -4,9 +4,19 @@ Mini-application Rails pour évaluer : compréhension d’un besoin produit → 
 
 ## Prérequis
 
-- Docker + Docker Compose
+- Docker + Docker Compose (Docker Desktop sous Windows / macOS)
 - Environnement local pour ouvrir deux fenêtres de navigateur
 - Budget indicatif : **~3 h** (timing libre ; prévoir une plage continue)
+
+Sous **Windows**, si `docker compose up` échoue avec  
+`exec /rails/bin/docker-entrypoint: no such file or directory`, tire la dernière version du dépôt puis relance :
+
+```powershell
+docker compose down
+docker compose up --build
+```
+
+(Cause fréquente : fins de ligne Windows sur le script d’entrée ; le dépôt est configuré pour éviter ça.)
 
 ## Méthodologie
 

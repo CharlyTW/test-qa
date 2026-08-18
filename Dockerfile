@@ -10,7 +10,10 @@ COPY Gemfile Gemfile.lock ./
 RUN bundle install
 
 COPY . .
+RUN chmod +x /rails/bin/docker-entrypoint \
+    && sed -i 's/\r$//' /rails/bin/docker-entrypoint
 
 EXPOSE 3000
-ENTRYPOINT ["/rails/bin/docker-entrypoint"]
+# Invoke via bash so a missing +x bit still works; compose overrides on Windows mounts.
+ENTRYPOINT ["bash", "/rails/bin/docker-entrypoint"]
 CMD ["./bin/rails", "server", "-b", "0.0.0.0", "-p", "3000"]
