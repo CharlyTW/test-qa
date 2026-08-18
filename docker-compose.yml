@@ -9,6 +9,16 @@ services:
     environment:
       RAILS_ENV: development
       BINDING: "0.0.0.0"
+    # Inline entrypoint: the bind mount replaces image files with the host copy.
+    # On Windows, host scripts often have CRLF endings, which makes Linux report
+    # "exec ... docker-entrypoint: no such file or directory".
+    entrypoint:
+      - bash
+      - -lc
+      - |
+        set -e
+        bundle exec rails db:prepare
+        exec bundle exec rails server -b 0.0.0.0 -p 3000
     stdin_open: true
     tty: true
 
